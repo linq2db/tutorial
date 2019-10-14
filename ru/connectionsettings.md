@@ -156,7 +156,7 @@ static void Main(string[] args)
     // Зададим конфигурацию по умолчанию
     DataConnection.DefaultConfiguration = "*";
 
-    // Создадим соединения
+    // Создадим соединение
     using (var db = new DataConnection())
     {
         // Создадим объект для выполнения запроса
@@ -188,7 +188,7 @@ static void Main(string[] args)
 {
     var path = System.IO.Path.GetFullPath(@"..\..\..\..\DB\database.sqlite");
 
-    // Создадим соединения
+    // Создадим соединение
     using (var db = new DataConnection(ProviderName.SQLiteClassic, $"Data Source={path};"))
     {
         // Создадим объект для выполнения запроса
