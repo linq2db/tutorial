@@ -27,7 +27,7 @@ title: Введение
 * [Dapper](https://github.com/StackExchange/Dapper)
 * [Entity Framework](https://docs.microsoft.com/ru-ru/ef/)
 * [NHibitnate](https://nhibernate.info/)
-* [И так далле](https://www.google.com/search?sxsrf=ACYBGNQBXXcLVEqzSnuk-3OY_JeWKoCLOw%3A1570882361449&source=hp&ei=OcOhXaDmGJKMrwTKiIawBA&q=.net+orm&oq=.net+orm&gs_l=psy-ab.3..0l9j0i22i30.2066.9938..10380...3.0..0.98.1049.13......0....1..gws-wiz.....10..35i39j35i362i39j0i10i1j0i131j0i131i1j0i10i42j0i10j0i1.dAD1rFt3gMg&ved=0ahUKEwjg5orp2JblAhUSxosKHUqEAUYQ4dUDCAY&uact=5)
+* [И так далее](https://www.google.com/search?sxsrf=ACYBGNQBXXcLVEqzSnuk-3OY_JeWKoCLOw%3A1570882361449&source=hp&ei=OcOhXaDmGJKMrwTKiIawBA&q=.net+orm&oq=.net+orm&gs_l=psy-ab.3..0l9j0i22i30.2066.9938..10380...3.0..0.98.1049.13......0....1..gws-wiz.....10..35i39j35i362i39j0i10i1j0i131j0i131i1j0i10i42j0i10j0i1.dAD1rFt3gMg&ved=0ahUKEwjg5orp2JblAhUSxosKHUqEAUYQ4dUDCAY&uact=5)
 
 Так почему же мы выбираем linq2db? И что выделяет данную библиотеку среди прочих? Давайте разберем данный вопрос по порядку.
 
