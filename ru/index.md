@@ -12,7 +12,7 @@ title: Вводный курс по linq2db
 * [Управление соединениями](dataconnection.md)
   * [Настройка соединения](connectionsettings.md)
 * [Запросы](queries.md)
-  * INSERT
+  * [INSERT](insert/index.md)
     * Объекты
     * С перечислением полей
     * Из источника
