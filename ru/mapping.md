@@ -57,14 +57,14 @@ FROM
 Давайте внимательно посмотрим на код, сгенерированный T4 шаблоном:
 
 ```cs
-	[Table("Customer")]
-	public partial class Customer : IId
-	{
-		[PrimaryKey, Identity] public long     Id               { get; set; } // integer
-		[Column,     NotNull ] public string   FullName         { get; set; } // varchar(50)
-		[Column,     NotNull ] public string   Phone            { get; set; } // varchar(15)
-		[Column,     NotNull ] public DateTime RegistrationTime { get; set; } // datetime
-	}
+[Table("Customer")]
+public partial class Customer : IId
+{
+    [PrimaryKey, Identity] public long     Id               { get; set; } // integer
+    [Column,     NotNull ] public string   FullName         { get; set; } // varchar(50)
+    [Column,     NotNull ] public string   Phone            { get; set; } // varchar(15)
+    [Column,     NotNull ] public DateTime RegistrationTime { get; set; } // datetime
+}
 ```
 
 Как вы видите, на класс и его свойства применены дополнительные атрибуты. Думаю, понять их назначение для вас не составит труда, но всё же рассмотрим каждый атрибут более подробно.
