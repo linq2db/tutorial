@@ -245,3 +245,7 @@ namespace LinqToDB.Tutorial.Models
 ## Исходный код к разделу
 
 [Доступен здесь](https://github.com/linq2db/tutorial.sources/tree/create_model), ветка `create_model`
+
+## Далее
+
+[Маппинг](mapping.md)

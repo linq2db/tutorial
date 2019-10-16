@@ -9,6 +9,7 @@ title: Вводный курс по linq2db
 * [Введение](intro.md)
 * [Подключение](nuget.md)
 * [Создание модели БД](t4create.md)
+* [Маппинг](mapping.md)
 * [Управление соединениями](dataconnection.md)
   * [Настройка соединения](connectionsettings.md)
 * [Запросы](queries.md)
