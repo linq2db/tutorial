@@ -14,10 +14,9 @@ title: Вводный курс по linq2db
   * [Настройка соединения](connectionsettings.md)
 * [Запросы](queries.md)
   * [INSERT](insert/index.md)
-    * Объекты
-    * С перечислением полей
-    * Из источника
-    * Большого массива
+    * [Объекты](insert/index.md)
+    * [С перечислением полей](insert/values.md)
+    * [Из источника](insert/from.md)
   * SELECT
     * Простые запросы
     * Использование джоинов
