@@ -51,7 +51,7 @@ DataConnection.AddOrSetConfiguration("low", $"Data Source={path2};", ProviderNam
 DataConnection.DefaultConfiguration = "*";
 ```
 
-Теперь по умолчанию мы будем образаться к базе `central.sqlite` а с использованием конфигурации `low` сможем обращаться к `database.sqlite` которую с этих пор будем считать базой с некоторого магазина - далее будем ее звать "нижней".
+Теперь по умолчанию мы будем обращаться к базе `central.sqlite` а с использованием конфигурации `low` сможем обращаться к `database.sqlite` которую с этих пор будем считать базой с некоторого магазина - далее будем ее звать "нижней".
 
 И наконец изменим наш `Model.tt` так, что бы модель генерировалась с `central.sqlite`:
 
@@ -108,9 +108,9 @@ public void BulkCopyTest()
 -- * SQLite.Classic SQLite
 INSERT INTO [Customer]
 (
-	[FullName],
-	[Phone],
-	[Number]
+    [FullName],
+    [Phone],
+    [Number]
 )
 VALUES
 ('Кира Толкачёва','+7 679 961 84 27',1),
@@ -180,10 +180,10 @@ var tmpTable = db.CreateTempTable<TmpCustomer>();
 ```sql
 CREATE TABLE [TmpCustomer]
 (
-	[TmpFullName]         NVarChar(50)     NULL,
-	[TmpPhone]            NVarChar(15)     NULL,
-	[TmpRegistrationTime] DateTime2    NOT NULL,
-	[TmpNumber]           BigInt           NULL
+    [TmpFullName]         NVarChar(50)     NULL,
+    [TmpPhone]            NVarChar(15)     NULL,
+    [TmpRegistrationTime] DateTime2    NOT NULL,
+    [TmpNumber]           BigInt           NULL
 )
 ```
 
@@ -237,20 +237,20 @@ uniqueQry // запрос, построенный нами выше
 ```sql
 INSERT INTO [TmpCustomer]
 (
-	[TmpFullName],
-	[TmpNumber],
-	[TmpRegistrationTime],
-	[TmpPhone]
+    [TmpFullName],
+    [TmpNumber],
+    [TmpRegistrationTime],
+    [TmpPhone]
 )
 SELECT
-	Min([t1].[FullName]),
-	Min([t1].[Number]),
-	Min([t1].[RegistrationTime]),
-	[t1].[Phone]
+    Min([t1].[FullName]),
+    Min([t1].[Number]),
+    Min([t1].[RegistrationTime]),
+    [t1].[Phone]
 FROM
-	[Customer] [t1]
+    [Customer] [t1]
 GROUP BY
-	[t1].[Phone]
+    [t1].[Phone]
 ```
 
 Следующим этапом мы зачищаем таблицу `Customer`:
@@ -261,7 +261,7 @@ db.Customers.Delete();
 
 ```sql
 DELETE FROM
-	[Customer]
+    [Customer]
 ```
 
 Ну и наконец вставляем обратно наши уникальные записи:
@@ -280,18 +280,18 @@ tmpTable // временная таблица
 ```sql
 INSERT INTO [Customer]
 (
-	[FullName],
-	[Number],
-	[Phone],
-	[RegistrationTime]
+    [FullName],
+    [Number],
+    [Phone],
+    [RegistrationTime]
 )
 SELECT
-	[t1].[TmpFullName],
-	[t1].[TmpNumber],
-	[t1].[TmpPhone],
-	[t1].[TmpRegistrationTime]
+    [t1].[TmpFullName],
+    [t1].[TmpNumber],
+    [t1].[TmpPhone],
+    [t1].[TmpRegistrationTime]
 FROM
-	[TmpCustomer] [t1]
+    [TmpCustomer] [t1]
 ```
 
 Исходный код доступен [здесь](https://github.com/linq2db/tutorial.sources/tree/insert_from).

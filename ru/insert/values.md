@@ -15,13 +15,13 @@ titile: Вставка данных с перечислением полей
 ```sql
 INSERT INTO [Customer]
 (
-	[FullName],
-	[Phone]
+    [FullName],
+    [Phone]
 )
 VALUES
 (
-	@FullName,
-	@Phone
+    @FullName,
+    @Phone
 )
 ```
 
@@ -74,13 +74,13 @@ SET     @Phone = '+7 929 335 17 9'
 
 INSERT INTO [Customer]
 (
-	[FullName],
-	[Phone]
+    [FullName],
+    [Phone]
 )
 VALUES
 (
-	@FullName,
-	@Phone
+    @FullName,
+    @Phone
 )
 ```
 
@@ -126,13 +126,13 @@ SET     @p1 = '+7 856 091 97 31'
 
 INSERT INTO [Customer]
 (
-	[FullName],
-	[Phone]
+    [FullName],
+    [Phone]
 )
 VALUES
 (
-	'Ариадна Диденкова',
-	@p1
+    'Ариадна Диденкова',
+    @p1
 )
 ```
 
@@ -172,15 +172,15 @@ SET     @p1 = '+7 466 152 79 28'
 
 INSERT INTO [Customer]
 (
-	[FullName],
-	[Phone],
-	[RegistrationTime]
+    [FullName],
+    [Phone],
+    [RegistrationTime]
 )
 VALUES
 (
-	'Эмма Лесничая',
-	@p1,
-	CURRENT_TIMESTAMP
+    'Эмма Лесничая',
+    @p1,
+    CURRENT_TIMESTAMP
 )
 ```
 

@@ -35,12 +35,12 @@ using (var db = new DataConnection())
 ```sql
 -- * SQLite.Classic SQLite
 SELECT
-	[t1].[Id],
-	[t1].[FullName],
-	[t1].[Phone],
-	[t1].[RegistrationTime]
+    [t1].[Id],
+    [t1].[FullName],
+    [t1].[Phone],
+    [t1].[RegistrationTime]
 FROM
-	[Customer] [t1]
+    [Customer] [t1]
 ```
 
 **NB**: обратите внимание, в построенном запросе перечислены все колонки **явно**, такой способ выборки вместо `SELECT * FROM Customer` является более эффективным как с точки зрения БД, так и с точки зрения материализации. Так же все имена в итоговом запросе - экранируются, что делает запрос более безопасным и надежным.

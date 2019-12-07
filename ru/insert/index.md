@@ -69,15 +69,15 @@ SET     @RegistrationTime = '2019-10-16 23:14:29.722'
 
 INSERT INTO [Customer]
 (
-	[FullName],
-	[Phone],
-	[RegistrationTime]
+    [FullName],
+    [Phone],
+    [RegistrationTime]
 )
 VALUES
 (
-	@FullName,
-	@Phone,
-	@RegistrationTime
+    @FullName,
+    @Phone,
+    @RegistrationTime
 )
 ```
 
@@ -163,15 +163,15 @@ SET     @RegistrationTime = '2019-10-17 00:00:54.031'
 
 INSERT INTO [Customer]
 (
-	[FullName],
-	[Phone],
-	[RegistrationTime]
+    [FullName],
+    [Phone],
+    [RegistrationTime]
 )
 VALUES
 (
-	@FullName,
-	@Phone,
-	@RegistrationTime
+    @FullName,
+    @Phone,
+    @RegistrationTime
 )
 
 -- * SQLite.Classic SQLite

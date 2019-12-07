@@ -91,7 +91,7 @@ public partial class Customer : IId
 <#
 
     // 1. Настройки генерации
-	NamespaceName = "DataModels";
+    NamespaceName = "DataModels";
 
     // 2. Загрузка метаданных из БД
     // На этом этапе из БД вычитывается информация о:
@@ -99,8 +99,8 @@ public partial class Customer : IId
     //   * Отношениях между таблицами (внешние ключи)
     //   * Представлениях и их колонках
     //   * Хранимых процедурах и функциях
-	LoadSQLiteMetadata(@"C:\Data", "MyDatabase.sqlite");
-//	LoadSQLiteMetadata(string connectionString);
+    LoadSQLiteMetadata(@"C:\Data", "MyDatabase.sqlite");
+//    LoadSQLiteMetadata(string connectionString);
 
     // 3. кастомизация модели
     // В данном шаблоне этот шаг отсутствует
@@ -108,7 +108,7 @@ public partial class Customer : IId
     // с описанием дополнительных возможностей шаблонов Т4
 
     // 4. Собственно генерация модели
-	GenerateModel();
+    GenerateModel();
 #>
 
 ```
@@ -172,13 +172,13 @@ GenerateFindExtensions        = true;
 <#@ include file="$(LinqToDBT4SQLiteTemplatesDirectory)PluralizationService.ttinclude"  #>
 <#
 
-	NamespaceName   = "LinqToDB.Tutorial.Models";
-	DataContextName = "TutorialDataConnection";
-	BaseEntityClass = "IId";
+    NamespaceName   = "LinqToDB.Tutorial.Models";
+    DataContextName = "TutorialDataConnection";
+    BaseEntityClass = "IId";
 
-	LoadSQLiteMetadata(this.Host.ResolvePath(@"..\..\DB\"), "database.sqlite");
+    LoadSQLiteMetadata(this.Host.ResolvePath(@"..\..\DB\"), "database.sqlite");
 
-	GenerateModel();
+    GenerateModel();
 #>
 ```
 
@@ -195,48 +195,48 @@ using LinqToDB.Mapping;
 
 namespace LinqToDB.Tutorial.Models
 {
-	/// <summary>
-	/// Database       : database
-	/// Data Source    : database
-	/// Server Version : 3.19.3
-	/// </summary>
-	public partial class TutorialDataConnection : LinqToDB.Data.DataConnection
-	{
-		public ITable<Customer> Customers { get { return this.GetTable<Customer>(); } }
+    /// <summary>
+    /// Database       : database
+    /// Data Source    : database
+    /// Server Version : 3.19.3
+    /// </summary>
+    public partial class TutorialDataConnection : LinqToDB.Data.DataConnection
+    {
+        public ITable<Customer> Customers { get { return this.GetTable<Customer>(); } }
 
-		public TutorialDataConnection()
-		{
-			InitDataContext();
-			InitMappingSchema();
-		}
+        public TutorialDataConnection()
+        {
+            InitDataContext();
+            InitMappingSchema();
+        }
 
-		public TutorialDataConnection(string configuration)
-			: base(configuration)
-		{
-			InitDataContext();
-			InitMappingSchema();
-		}
+        public TutorialDataConnection(string configuration)
+            : base(configuration)
+        {
+            InitDataContext();
+            InitMappingSchema();
+        }
 
-		partial void InitDataContext  ();
-		partial void InitMappingSchema();
-	}
+        partial void InitDataContext  ();
+        partial void InitMappingSchema();
+    }
 
-	[Table("Customer")]
-	public partial class Customer : IId
-	{
-		[PrimaryKey, Identity] public long   Id       { get; set; } // integer
-		[Column,     Nullable] public string FullName { get; set; } // varchar(50)
-		[Column,     Nullable] public string Phone    { get; set; } // varchar(15)
-	}
+    [Table("Customer")]
+    public partial class Customer : IId
+    {
+        [PrimaryKey, Identity] public long   Id       { get; set; } // integer
+        [Column,     Nullable] public string FullName { get; set; } // varchar(50)
+        [Column,     Nullable] public string Phone    { get; set; } // varchar(15)
+    }
 
-	public static partial class TableExtensions
-	{
-		public static Customer Find(this ITable<Customer> table, long Id)
-		{
-			return table.FirstOrDefault(t =>
-				t.Id == Id);
-		}
-	}
+    public static partial class TableExtensions
+    {
+        public static Customer Find(this ITable<Customer> table, long Id)
+        {
+            return table.FirstOrDefault(t =>
+                t.Id == Id);
+        }
+    }
 }
 
 #pragma warning restore 1591
