@@ -17,6 +17,7 @@ title: Вводный курс по linq2db
     * [Объекты](insert/index.md)
     * [С перечислением полей](insert/values.md)
     * [Из источника](insert/from.md)
+    * [Задание](insert/test.md)
   * SELECT
     * Простые запросы
     * Использование джоинов
