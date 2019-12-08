@@ -110,7 +110,7 @@ public void InsertValuesTest()
 }
 ```
 
-Во первых эктеншн методы [Value](https://linq2db.github.io/api/LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_Value__2_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0___1_____1_) позволяют перечислить перечень полей для вставки. Методы принимают два аргумента:
+Во первых методы расширения (extension methods) [Value](https://linq2db.github.io/api/LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_Value__2_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0___1_____1_) позволяют перечислить перечень полей для вставки. Методы принимают два аргумента:
 
 * Первый - это лямда, указывающее для какой колонки таблицы мы будем задавать значение
 * Второй - это либо значение для колонки (как в случае с `FullName`), либо **выражение** в виде лямбды, как в случае с `Phone`. И это очень важный момент - т.к. `linq2db` постарается разобрать лямбду и привести ее к SQL выражению (пример мы рассмотрим чуть ниже).
@@ -211,7 +211,7 @@ public void InsertValuesQueryCompositionTest([ValueSource(nameof(RegistrationTim
 }
 ```
 
-И последний момент на который мы обратим внимание - фдаг `SkipOnInsert` не действует в случае явного указания колонки методом `Value`.
+И последний момент на который мы обратим внимание - флаг `SkipOnInsert` не действует в случае явного указания колонки методом `Value`.
 
 При всех своих достоинствах использование метода `Value` может быть слегка громоздким более лаконичным может быть использование методов [Insert](https://linq2db.github.io/api/LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_Insert__1_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0___) и [InsertWithIdentity](https://linq2db.github.io/api/LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_InsertWithDecimalIdentity__1_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0___), принимающих лямбду с инициализацией полей:
 
