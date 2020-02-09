@@ -19,7 +19,7 @@ title: Вводный курс по linq2db
     * [Из источника](insert/from.md)
     * [Задание](insert/test.md)
   * SELECT
-    * Простые запросы
+    * [Простые запросы](./select/index.md)
     * Использование джоинов
   * UPDATE
     * Объект
