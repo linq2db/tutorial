@@ -20,7 +20,9 @@ title: Вводный курс по linq2db
     * [Задание](insert/test.md)
   * SELECT
     * [Простые запросы](./select/index.md)
-    * Использование джоинов
+    * [Использование джоинов](select/joins.md)
+    * [Функции](select/functions.md)
+    * [Задание](select/test.md)
   * UPDATE
     * Объект
     * С перечислением полей

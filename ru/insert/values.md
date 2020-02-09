@@ -30,7 +30,7 @@ VALUES
 * С использованием маппинга
 * С явным перечислением полей
 
-## Использование мапинга
+## Использование маппинга
 
 Как мы рассматривали ранее у атрибута [Column](https://linq2db.github.io/api/LinqToDB.Mapping.ColumnAttribute.html) есть свойство [SkipOnInsert](https://linq2db.github.io/api/LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_SkipOnInsert), если мы выставим его в `true` для свойства `RegistrationTime` то методы `Insert` & `InsertWithIdentity` будут генерировать SQL без данного поля.
 
@@ -84,13 +84,13 @@ VALUES
 )
 ```
 
-В то же время в самой базе данное значене заполнено:
+В то же время в самой базе данное значение заполнено:
 
 ![RegistrationTime default value filled](../../images/insert/data1.png)
 
 ## Перечисление полей при вставке
 
-Мапинг хотя и удобное, но не универсальное решение, в конце концов может потребоваться в некоторых случаях время регистрации и заполнять. `linq2db` поддерживает возможность явно перечислять поля для вставки, а главное - задавать **выражения** для их значений.
+Маппинг хотя и удобное, но не универсальное решение, в конце концов может потребоваться в некоторых случаях время регистрации и заполнять. `linq2db` поддерживает возможность явно перечислять поля для вставки, а главное - задавать **выражения** для их значений.
 
 Для начала рассмотрим пример, а затем разберем его:
 
@@ -112,7 +112,7 @@ public void InsertValuesTest()
 
 Во первых методы расширения (extension methods) [Value](https://linq2db.github.io/api/LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_Value__2_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0___1_____1_) позволяют перечислить перечень полей для вставки. Методы принимают два аргумента:
 
-* Первый - это лямда, указывающее для какой колонки таблицы мы будем задавать значение
+* Первый - это лямбда, указывающее для какой колонки таблицы мы будем задавать значение
 * Второй - это либо значение для колонки (как в случае с `FullName`), либо **выражение** в виде лямбды, как в случае с `Phone`. И это очень важный момент - т.к. `linq2db` постарается разобрать лямбду и привести ее к SQL выражению (пример мы рассмотрим чуть ниже).
 
 После перечисления полей необходимо вызвать либо [Insert](https://linq2db.github.io/api/LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_Insert__1_LinqToDB_Linq_IValueInsertable___0__) либо [InsertWithIdentity](https://linq2db.github.io/api/LinqToDB.LinqExtensions.html#LinqToDB_LinqExtensions_InsertWithDecimalIdentity__1_LinqToDB_ITable___0__System_Linq_Expressions_Expression_System_Func___0___) (вызов этих методов приводит к выполнению запроса).
