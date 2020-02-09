@@ -4,7 +4,7 @@ title: Маппинг
 
 # Маппинг
 
-Маппинг - отображение таблиц БД на объекты и их свойства, любая ORM должна знать какой объект какой таблице соответствует и какие колонки данной таблицы каким соответствуют каким полям объекта. Так же к маппингу относится и преобразование типов данных, между БД и объектами.
+Маппинг - отображение таблиц БД на объекты и их свойства, любая ORM должна знать какой объект какой таблице соответствует и какие колонки данной таблицы соответствуют каким полям объекта. Также к маппингу относится и преобразование типов данных, между БД и объектами.
 
 Разберемся с **базовыми** настройками маппинга в `linq2db`. По умолчанию действуют простые правила:
 
@@ -43,7 +43,7 @@ FROM
     [Customer] [t1]
 ```
 
-**NB**: обратите внимание, в построенном запросе перечислены все колонки **явно**, такой способ выборки вместо `SELECT * FROM Customer` является более эффективным как с точки зрения БД, так и с точки зрения материализации. Так же все имена в итоговом запросе - экранируются, что делает запрос более безопасным и надежным.
+**NB**: обратите внимание, в построенном запросе перечислены все колонки **явно**, такой способ выборки вместо `SELECT * FROM Customer` является более эффективным как с точки зрения БД, так и с точки зрения материализации. Так же все имена в итоговом запросе экранируются, что делает запрос более безопасным и надежным.
 
 При использовании Т4 шаблонов мы получаем **гарантированно** валидную модель данных, именно поэтому это является рекомендуемым подходом.
 
@@ -71,9 +71,9 @@ public partial class Customer : IId
 
 ### Table
 
-Докуметнация: [здесь](https://linq2db.github.io/api/LinqToDB.Mapping.TableAttribute.html).
+Документация: [здесь](https://linq2db.github.io/api/LinqToDB.Mapping.TableAttribute.html).
 
-В первую очередь атрибут позволяет задать имя таблицы а БД, а так же у него есть дополнительные свойства, которые позволяют задать:
+В первую очередь атрибут позволяет задать имя таблицы в БД, а так же у него есть дополнительные свойства, которые позволяют задать:
 
 * Имя базы данных и схемы ([Database](https://linq2db.github.io/api/LinqToDB.Mapping.TableAttribute.html#LinqToDB_Mapping_TableAttribute_Database), [Schema](https://linq2db.github.io/api/LinqToDB.Mapping.TableAttribute.html#LinqToDB_Mapping_TableAttribute_Schema)). Это может быть полезно, если на одном сервере БД вы работаете с несколькими базами. Если данные параметры установлены, то в запросах будет использовано **полное** имя таблицы. Это позволяет выполнять запросы, даже если соединение установлено с выбором другой БД.
 * [IsColumnAttributeRequired](https://linq2db.github.io/api/LinqToDB.Mapping.TableAttribute.html#LinqToDB_Mapping_TableAttribute_IsColumnAttributeRequired) - позволяет указать явное требование на применения атрибута `Column` для полей и свойств класса, в этом случае колонками будут считаться только члены, помеченные данным атрибутом.
@@ -84,10 +84,10 @@ public partial class Customer : IId
 
 Управляет мапингом колонок таблиц. Так же позволяет задать название колонки, и ещё множество дополнительных свойств. Имеет "побратима" - [NotColumn](https://linq2db.github.io/api/LinqToDB.Mapping.NotColumnAttribute.html) - указывающего, что данный член класса не является колонкой и не должен быть использован в запросах.
 
-Рассмотрим основные свойства, которые позволяет задать данный аотрибут кроме имени:
+Рассмотрим основные свойства, которые позволяет задать данный атрибут кроме имени:
 
 * [IsIdentity](https://linq2db.github.io/api/LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_IsIdentity) - указывает что данная колонка - автогенерируемый идентификатор, что исключает ее из запросов на вставку и обновление. Так же этот параметр можно задать использовав [IdentityAttribute](https://linq2db.github.io/api/LinqToDB.Mapping.IdentityAttribute.html).
-* [IsPrimaryKey](https://linq2db.github.io/api/LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_IsPrimaryKey) - указывает что колонка первичный ключ. Аналогично применению [IsPrimaryKey](https://linq2db.github.io/api/LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_IsPrimaryKey).
+* [IsPrimaryKey](https://linq2db.github.io/api/LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_IsPrimaryKey) - указывает что колонка первичный ключ. Аналогично применению [PrimaryKeyAttribute](https://linq2db.github.io/api/LinqToDB.Mapping.PrimaryKeyAttribute.html).
 * [SkipOnInsert](https://linq2db.github.io/api/LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_SkipOnInsert) - при вставке целого объекта эта колонка будет пропущена в SQL запросе `INSERT`. Что может быть полезно для полей, получающих значение по умолчанию.
 * [SkipOnUpdate](https://linq2db.github.io/api/LinqToDB.Mapping.ColumnAttribute.html#LinqToDB_Mapping_ColumnAttribute_SkipOnUpdate) - при обновлении целого объекта эта колонка будет пропущена в SQL запросе `UPDATE`. Это может быть полезно для неизменных колонок.
 
